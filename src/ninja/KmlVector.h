@@ -113,21 +113,21 @@ public:
 
     void orangeLegend();
 
-	bool writeHeader(FILE *fileOut);
-	bool writeRegion(FILE *fileOut);
-	bool writeStyles(FILE *fileOut);
-	bool writeHtmlLegend(FILE *fileOut);
-    bool writeScreenOverlayLegend(FILE *fileOut,std::string cScheme);
-	bool writeScreenOverlayDateTimeLegend(FILE *fileOut);
-	bool writeScreenOverlayDateTimeLegendWxModelRun(FILE *fileOut);
+	bool writeHeader(VSILFILE *fileOut);
+	bool writeRegion(VSILFILE *fileOut);
+	bool writeStyles(VSILFILE *fileOut);
+	bool writeHtmlLegend(VSILFILE *fileOut);
+    bool writeScreenOverlayLegend(VSILFILE *fileOut,std::string cScheme);
+	bool writeScreenOverlayDateTimeLegend(VSILFILE *fileOut);
+	bool writeScreenOverlayDateTimeLegendWxModelRun(VSILFILE *fileOut);
 
-	bool writeVectors(FILE *fileOut);
-	bool writeTurbulence(FILE *fileOut);
+	bool writeVectors(VSILFILE *fileOut);
+	bool writeTurbulence(VSILFILE *fileOut);
 	#ifdef FRICTION_VELOCITY
-	bool writeUstar(FILE *fileOut);
+	bool writeUstar(VSILFILE *fileOut);
 	#endif
 	#ifdef EMISSIONS
-	bool writeDust(FILE *fileOut);
+	bool writeDust(VSILFILE *fileOut);
 	#endif
 
 	void setDemFile(std::string fileName){demFile = fileName;}

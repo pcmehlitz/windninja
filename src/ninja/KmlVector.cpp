@@ -1179,7 +1179,7 @@ bool KmlVector::writeScreenOverlayDateTimeLegendWxModelRun(VSILFILE *fileOut)
     return true;
 }
 
-bool KmlVector::writeTurbulence(FILE *fileOut)
+bool KmlVector::writeTurbulence(VSILFILE *fileOut)
 {
 	double xPoint, yPoint;
 	double xCenter, yCenter;
@@ -1303,7 +1303,7 @@ bool KmlVector::writeTurbulence(FILE *fileOut)
 }
 
 #ifdef FRICTION_VELOCITY
-bool KmlVector::writeUstar(FILE *fileOut)
+bool KmlVector::writeUstar(VSILFILE *fileOut)
 {
 	double xPoint, yPoint;
 	double xCenter, yCenter;
@@ -1410,7 +1410,7 @@ bool KmlVector::writeUstar(FILE *fileOut)
 #endif
 
 #ifdef EMISSIONS
-bool KmlVector::writeDust(FILE *fileOut)
+bool KmlVector::writeDust(VSILFILE *fileOut)
 {
 	double xPoint, yPoint;
 	double xCenter, yCenter;
