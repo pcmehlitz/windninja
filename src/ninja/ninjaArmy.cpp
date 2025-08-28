@@ -413,7 +413,7 @@ bool ninjaArmy::startRuns(int numProcessors)
 #endif //NINJAFOAM
 
 #ifdef _OPENMP
-    omp_set_nested(false);
+    omp_set_max_active_levels(0);
     //omp_set_dynamic(true);
 #endif
 
@@ -802,7 +802,7 @@ bool ninjaArmy::startRuns(int numProcessors)
                 }
 
                 //start the run
-                ninjas[i]->simulate_wind();	//runs are done on 1 thread each since omp_set_nested(false)
+                ninjas[i]->simulate_wind();	//runs are done on 1 thread each since omp_set_max_active_levels(0)
 
                 //store data for atmosphere file
                 if(writeFarsiteAtmFile)

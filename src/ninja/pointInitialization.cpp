@@ -1403,9 +1403,9 @@ double pointInitialization::interpolator(double iPoint, double lowX, double high
     double result = lowY + pointS * slope;
 
     //MSVC 2010 is not c++11 compliant-> isnan doesn't work with MSVC2010
-    //changing to CPLISNan()
+    //changing to std::isnan()
 
-    if(CPLIsNan(result))
+    if(std::isnan(result))
     {
         result = work;
     }
@@ -1427,8 +1427,8 @@ double pointInitialization::interpolateDirection(double lowDir, double highDir)
     {
         degAverage = degAverage + 360.0;
     }
-    //Changing isnan() to CPLIsNan() for MSVC2010 compliance
-    if (CPLIsNan(degAverage))
+    //Changing isnan() to std::isnan() for MSVC2010 compliance
+    if (std::isnan(degAverage))
     {
         degAverage=0.0; //Sometimes the interpolation fails, temporary fix here!
         CPLDebug("STATION_FETCH","Direction Interpolation Failed! Zeroing out bad point!");
@@ -2234,8 +2234,8 @@ vector<double> pointInitialization::Irradiate(vector<string> solar_radiation, st
         {
             solFrac=one;
         }
-        //Note that CPLIsNan is required to compile on MSVC2010 c++11's isnan doesn't work
-        if (CPLIsNan(solFrac))
+        //Note that std::isnan is required to compile on MSVC2010 c++11's isnan doesn't work
+        if (std::isnan(solFrac))
         {
             solFrac=one;
         }

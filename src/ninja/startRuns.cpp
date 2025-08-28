@@ -43,7 +43,7 @@ bool startRuns(int numRuns, int numProcessors, ninja *windsim)
 		return false;
 
 	#ifdef _OPENMP
-		omp_set_nested(true);
+	    omp_set_max_active_levels( omp_get_max_active_levels());
 		//omp_set_dynamic(true); 
 	#endif
 
@@ -160,7 +160,7 @@ bool startRuns(int numRuns, int numProcessors, ninja *windsim)
 		return false;
 
 	#ifdef _OPENMP
-		omp_set_nested(false);
+		omp_set_max_active_levels(0);
 		//omp_set_dynamic(true); 
 	#endif
 
@@ -185,7 +185,7 @@ bool startRuns(int numRuns, int numProcessors, ninja *windsim)
 		for(j=0; j<numRuns; j++)
 		{
 			//start the run
-			windsim[j].simulate_wind();	//runs are done on 1 thread each since omp_set_nested(false)
+			windsim[j].simulate_wind();	//runs are done on 1 thread each since omp_set_max_active_levels(0)
 		}
 	}
 	

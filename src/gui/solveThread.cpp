@@ -64,7 +64,7 @@ bool solveThread::startRunsQt(int numRuns, int numProcessors, ninja *windsim)
 	return false;
   
 #ifdef _OPENMP
-    omp_set_nested(false);
+    omp_set_max_active_levels(0);
     //omp_set_dynamic(true); 
 #endif
   
@@ -103,7 +103,7 @@ bool solveThread::startRunsQt(int numRuns, int numProcessors, ninja *windsim)
 	for(int j = 0; j < numRuns; j++) {
 	    //start the run
 	    try {
-		retval[j] = windsim[j].simulate_wind();	//runs are done on 1 thread each since omp_set_nested(false)
+		retval[j] = windsim[j].simulate_wind();	//runs are done on 1 thread each since omp_set_max_active_levels(0)
 	    }
 	    catch  (std::bad_alloc& e) {
 		exceptString = "Exception bad_alloc caught: " + QString( e.what() );

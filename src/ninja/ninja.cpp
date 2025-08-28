@@ -4487,7 +4487,7 @@ void ninja::set_numberCPUs(int CPUs)
     /*
         if(omp_in_parallel())
         {
-            //omp_set_nested(false);
+            //omp_set_max_active_levels(0);
             //omp_set_dynamic(true);
             omp_set_num_threads(1);
             //ninjaCom(ninjaComClass::ninjaDebug, "IN OMP PARALLEL REGION AND SHOULDN'T BE!!!!");

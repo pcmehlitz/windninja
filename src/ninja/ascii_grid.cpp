@@ -20,11 +20,6 @@ template<> inline double epsClr<double>() { return 0.001; }
 template<> inline int epsClr<int>() { return 1; }
 template<> inline short epsClr<short>() { return 1; }
 
-template <class T>
-inline bool cplIsNan(T t) {
-    return CPLIsNan((double)t); // we need to disambiguate
-}
-
 
 /**
  * @brief Create an empty grid
@@ -921,7 +916,7 @@ bool AsciiGrid<T>::fillNoDataValues( int minNeighborCells, double maxPercentNoDa
     {
         for(int j = 0;j < data.get_numCols();j++)
         {
-            if(get_cellValue(i,j) == get_noDataValue() || cplIsNan(get_cellValue(i,j)))
+            if(get_cellValue(i,j) == get_noDataValue() || std::isnan(get_cellValue(i,j)))
                 numNoDataValues++;
         }
     }
@@ -945,7 +940,7 @@ bool AsciiGrid<T>::fillNoDataValues( int minNeighborCells, double maxPercentNoDa
             {
                 for(int j = 0;j < data.get_numCols();j++)
                 {
-                    if(get_cellValue(i, j) == get_noDataValue() || cplIsNan(get_cellValue(i,j)))
+                    if(get_cellValue(i, j) == get_noDataValue() || std::isnan(get_cellValue(i,j)))
                     {
                         sum = 0.0;
                         nValues = 0;
@@ -957,7 +952,7 @@ bool AsciiGrid<T>::fillNoDataValues( int minNeighborCells, double maxPercentNoDa
                                     jj < 0 || jj >= get_nCols())
                                     continue;
 
-                                if(get_cellValue(ii, jj) == get_noDataValue() || cplIsNan(get_cellValue(ii, jj)))
+                                if(get_cellValue(ii, jj) == get_noDataValue() || std::isnan(get_cellValue(ii, jj)))
                                     continue;
 
                                 sum = sum + get_cellValue(ii, jj);
@@ -1302,7 +1297,7 @@ void AsciiGrid<T>::replaceNan( T final )
     {
         for (int j = 0;j < data.get_numCols();j++)
         {
-            if( cplIsNan(data(i,j)) )
+            if( std::isnan(data(i,j)) )
             data(i,j) = final;
         }
     }
