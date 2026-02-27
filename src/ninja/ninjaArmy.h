@@ -1128,6 +1128,7 @@ public:
 
 
     // HUVW grid and vector output in various formats
+    int setHuvwSuffix( const int nIndex, std::string suffix, char ** papszOptions=NULL );
     int setHuvwOutFlag( const int nIndex, const bool flag, char ** papszOptions=NULL );
     int setHuvw0OutFlag( const int nIndex, const bool flag, char ** papszOptions=NULL );
 

@@ -4981,8 +4981,8 @@ void ninja::set_outputFilenames(double& meshResolution,
     input.atmFile = rootFile + ascii_fileAppend + ".atm";
 
     // HUVW output files
-    input.huvwTifFile = rootFile + ascii_fileAppend + "_huvw.tif";
-    input.huvw0TifFile = rootFile + ascii_fileAppend + "_huvw_0.tif";
+    input.huvwTifFile = rootFile + ascii_fileAppend + input.huvwSuffix + ".tif";    // "_huvw.tif";
+    input.huvw0TifFile = rootFile + ascii_fileAppend + input.huvwSuffix + "_0.tif"; // "_huvw_0.tif";
 
     #ifdef FRICTION_VELOCITY
     input.ustarFile = rootFile + ascii_fileAppend + "_ustar.asc";

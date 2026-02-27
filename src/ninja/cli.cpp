@@ -307,6 +307,7 @@ int windNinjaCLI(int argc, char* argv[])
                 ("shape_out_resolution", po::value<double>()->default_value(-1.0), "resolution of shapefile output file (-1 to use mesh resolution)")
                 ("units_shape_out_resolution", po::value<std::string>()->default_value("m"), "units of shapefile resolution (ft, m)")
 
+                ("huvw_suffix", po::value<std::string>()->default_value("_huvw"), "filename suffix for huvw output (excluding extension, default '_huvw')")
                 ("write_huvw_output", po::value<bool>()->default_value(false), "write HUVW wind vector output grid (true, default:false)")
                 ("write_huvw_0_output" , po::value<bool>()->default_value(false), "write input wind speed (wxModel or point) (true, default:false)")
 
@@ -1824,6 +1825,7 @@ int windNinjaCLI(int argc, char* argv[])
             }
 
             // HUVW output options (3D wind grids/vectors in various formats)
+            windsim.setHuvwSuffix( i_, vm["huvw_suffix"].as<std::string>());
             windsim.setHuvwOutFlag( i_, vm["write_huvw_output"].as<bool>());
             windsim.setHuvw0OutFlag( i_, vm["write_huvw_0_output"].as<bool>());
 

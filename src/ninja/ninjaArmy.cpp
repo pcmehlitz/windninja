@@ -1912,6 +1912,11 @@ int ninjaArmy::setShpResolution( const int nIndex, const double resolution,
 
 //--- storing 3D HUVW grids and vectors
 
+int ninjaArmy::setHuvwSuffix( const int nIndex, std::string huvwSuffix, char ** papszOptions )
+{
+    IF_VALID_INDEX_TRY( nIndex, ninjas, ninjas[ nIndex ]->set_huvwSuffix( huvwSuffix ) );
+}
+
 int ninjaArmy::setHuvwOutFlag( const int nIndex, const bool flag, char ** papszOptions )
 {
     IF_VALID_INDEX_TRY( nIndex, ninjas, ninjas[ nIndex ]->set_huvwOutFlag( flag ) );

@@ -191,11 +191,15 @@ public:
     
     bool asciiOutFlag;			//flag specifying if ESRI Ascii Raster files (*_vel.asc, *_ang.asc, *_cld.asc) should be written
 
+    //--- HUVW output file options
+    std::string huvwSuffix; // the filename suffix for the HUVW output file (excluding extension, which is always .tif)
+
     bool huvwOutFlag;  // do we write HUVW wind grids/vectors
     std::string huvwTifFile;
 
     bool huvw0OutFlag; // do we store u,v,w of input wind ? 
     std::string huvw0TifFile;
+    //--- end HUVW output file options
     
     bool txtOutFlag;			//flag specifying if a text file (*.txt) comparing measured to simulated data at specified points should be written (filenames here are hard-coded into the write_compare_output() function in ninja.cpp)
     bool wxModelShpOutFlag;		//flag specifying if a wxModel shapefile should be written

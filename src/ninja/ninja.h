@@ -339,6 +339,7 @@ public:
     void set_wxModelShpOutFlag(bool flag);
     void set_shpResolution(double Resolution, lengthUnits::eLengthUnits units);	//sets the output resolution of the shapefile, if negative value the computational mesh resolution is used
 
+    inline void set_huvwSuffix (std::string suffix) { input.huvwSuffix = suffix; }
     inline void set_huvwOutFlag(bool flag) { input.huvwOutFlag = flag; }
     inline void set_huvw0OutFlag(bool flag) { input.huvw0OutFlag = flag; }
  

@@ -454,7 +454,7 @@ bool OGRPointToLatLon(double &x, double &y, OGRDataSourceH hDS,
   poLayer = (OGRLayer *)OGR_DS_GetLayer(hDS, 0);
   poLayer->ResetReading();
 
-  poSrcSRS = poLayer->GetSpatialRef();
+  poSrcSRS = (OGRSpatialReference*) poLayer->GetSpatialRef();
   if (poSrcSRS == NULL) {
     return false;
   }
