@@ -449,7 +449,7 @@ bool ninjaArmy::startRuns(int numProcessors)
 
         dfRatioH = dfHeight * nDPI / nYSize;
         dfRatioW = dfWidth * nDPI / nXSize;
-        dfRatio = MIN( dfRatioH, dfRatioW );
+        dfRatio = CPL_MIN( dfRatioH, dfRatioW );
 
         int nNewXSize = nXSize * dfRatio;
         int nNewYSize = nYSize * dfRatio;
